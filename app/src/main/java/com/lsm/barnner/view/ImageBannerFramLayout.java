@@ -15,10 +15,17 @@ import com.lsm.barnner.R;
 
 import java.util.List;
 
+/**
+ * 自定义轮播图
+ */
 public class ImageBannerFramLayout extends FrameLayout {
+    //图片轮播
     private ImageBarnnerViewGroup imageBarnnerViewGroup;
+    //屏幕的宽度
     private int screenWidth;
+    //底部指示器容器
     private LinearLayout linearLayout;
+    //点击监听回调接口
     private ImageBannerListener listener;
 
     public ImageBannerFramLayout(Context context) {
@@ -87,6 +94,10 @@ public class ImageBannerFramLayout extends FrameLayout {
 
     }
 
+    /**
+     * 调用该方法设置轮播图的数量
+     * @param list 传入轮播的数据源
+     */
     public void addPoint(List<Integer> list) {
         for (Integer integer : list) {
             addBitmapToImageBannerViewGroup(integer);
@@ -94,6 +105,9 @@ public class ImageBannerFramLayout extends FrameLayout {
         }
     }
 
+    /**
+     * 添加轮播的指示器
+     */
     private void addDotToLinearLayout() {
         ImageView imageView = new ImageView(getContext());
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -104,6 +118,10 @@ public class ImageBannerFramLayout extends FrameLayout {
         linearLayout.addView(imageView);
     }
 
+    /**
+     * 添加轮播的图片
+     * @param resId
+     */
     private void addBitmapToImageBannerViewGroup(int resId) {
         ImageView iv = new ImageView(getContext());
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);

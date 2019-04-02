@@ -15,6 +15,9 @@ import android.widget.Scroller;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * 自定义轮播图效果
+ */
 public class ImageBarnnerViewGroup extends ViewGroup {
     //获取子view的数量
     private int children;
@@ -107,6 +110,9 @@ public class ImageBarnnerViewGroup extends ViewGroup {
         initObj();
     }
 
+    /**
+     * 初始化话Scroller TimerTask 实现自动轮播
+     */
     private void initObj() {
         scroller = new Scroller(getContext());
         task = new TimerTask() {
@@ -220,19 +226,6 @@ public class ImageBarnnerViewGroup extends ViewGroup {
         }
         return true;
     }
-
-    /**
-     * 获取手机屏幕的宽度
-     *
-     * @return
-     */
-    private int getScreenWidth() {
-        WindowManager windowManager = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        return displayMetrics.widthPixels;
-    }
-
     /**
      * 设置轮播图点击事件监听
      *
